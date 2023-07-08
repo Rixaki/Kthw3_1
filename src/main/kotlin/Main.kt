@@ -1,6 +1,6 @@
 fun main(args: Array<String>) {
 
-    val secs: Int = 61 + 60 * 10 * 2
+    val secs: Int = 61 + 60  * 2
     println(agoToText(secs))
 }
 
@@ -19,17 +19,17 @@ fun agoToText(secAgo: Int): String = when {
         "Был(а) $minutes ${minCaseEnum(minutes)} назад"
     }
 
-    else -> "Только что"
+    else -> "Был(а) только что"
 }
 
 fun hourCaseEnum(count: Int): String = when {
     (count % 10 == 1) && (count % 100 != 11) -> "час"
-    (count % 10 in 2..4) -> "часа"
+    (count % 10 in 2..4) && (count % 100 < 10) -> "часа"
     else -> "часов"
 }
 
 fun minCaseEnum(count: Int): String = when {
     (count % 10 == 1) && (count % 100 != 11) -> "минуту"
-    (count % 10 in 2..4) -> "минуты"
+    (count % 10 in 2..4) && (count % 100 < 10) -> "минуты"
     else -> "минут"
 }
