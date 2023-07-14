@@ -24,12 +24,12 @@ fun agoToText(secAgo: Int): String = when {
 
 fun hourCaseEnum(count: Int): String = when {
     (count % 10 == 1) && (count % 100 != 11) -> "час"
-    (count % 10 in 2..4) && (count % 100 < 10) -> "часа"
+    (count % 100 !in 12..14) -> "часа"
     else -> "часов"
 }
 
 fun minCaseEnum(count: Int): String = when {
     (count % 10 == 1) && (count % 100 != 11) -> "минуту"
-    (count % 10 in 2..4) && (count % 100 < 10) -> "минуты"
+    (count % 100 !in 12..14) -> "минуты"
     else -> "минут"
 }
